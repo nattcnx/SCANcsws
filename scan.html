@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>สแกนเข้างาน</title>
+  <title>สแกนเข้าโรงเรียน</title>
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="js/api-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.js"></script>
@@ -259,7 +259,7 @@
 
   <div class="top-bar">
     <a href="index.html" class="back-btn">← กลับ</a>
-    <h2>📷 สแกนเข้างาน</h2>
+    <h2>📷 สแกนเข้าโรงเรียน</h2>
     <div class="spacer"></div>
   </div>
 
@@ -399,7 +399,7 @@
     mainStatus.innerText = '3/4 โหลดฐานข้อมูลพนักงาน...';
     try {
       const data = await fetch(API_URL + '?action=getKnownFaces').then(r => r.json());
-      if (!data || data.length === 0) return showError('ไม่พบข้อมูลพนักงาน กรุณาลงทะเบียนก่อน');
+      if (!data || data.length === 0) return showError('ไม่พบข้อมูลนักเรียน กรุณาลงทะเบียนก่อน');
 
       knownFaces = data.map(u => ({
         name: u.label,
@@ -504,7 +504,7 @@
     } catch (e) {
       alert('❌ บันทึกล้มเหลว: ' + e.message);
       btn.disabled  = false;
-      btn.innerText = '✅ ยืนยันเข้างาน';
+      btn.innerText = '✅ ยืนยันเข้าโรงเรียน';
     }
   }
 
